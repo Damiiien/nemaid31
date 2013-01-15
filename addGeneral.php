@@ -1,6 +1,7 @@
 <?php
 
 // On inclut les pages de connection à la BDD et des fonctions
+//lol
 include("connectionSQL.php");
 include("functions.php");
 include("includes/haut.php");

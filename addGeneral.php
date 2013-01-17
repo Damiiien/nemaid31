@@ -2,7 +2,7 @@
 
 // On inclut les pages de connection à la BDD et des fonctions
 //lol
-//test git marie
+//test2 git marie
 include("connectionSQL.php");
 include("functions.php");
 include("includes/haut.php");

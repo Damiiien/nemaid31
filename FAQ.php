@@ -85,23 +85,25 @@ NEMAID can't help you any further. You must now check the published descriptions
 					<td>
 <u>Valid / invalid species/descriptions</u><br />
 <span class="alinea1"> By default, Nemaid similarity coefficients are computed only for valid species and, within valid species, only for descriptions that have been accepted as truly representing the species to which they were ascribed. However, you are free to include also the species and populations that are considered as invalid (synonymy, species inquirendae, species transferred to another genus, etc) by later authors. <br /></span>
-<span class="alinea1">In the tab <b>Compute coefficients of similarity</b>, check the box "Include invalid species".<br /></span>
+<span class="alinea1">In the tab <b>Perform a comparison</b>, check the box "Include invalid species".<br /></span>
 <br />
 
 <u>Type population, composite descriptions and individual populations</u><br />
 <span class="alinea1"> By default, Nemaid similarity coefficients are computed for the type population and for a composite description of each species. However, you are free to consider only the type populations (original description), only the composite descriptions, or you can also ask the program to treat individually every description included in the table. In such a case, if species x is represented by, for example, six populations in the data table (its type population and 5 other populations), Nemaid will compute six coefficients of similarity between your sample and species x, one for each of these populations. <br /></span>
-<span class="alinea1">In the tab <b>Compute coefficients of similarity</b>, Type of description, check the radio button of the option you want.<br /></span>
+<span class="alinea1">In the tab <b>Perform a comparison</b>, Type of description, check the radio button of the option you want.<br /></span>
 <br />
 
 <u>Computation formulae</u><br />
 <span class="alinea1"> By default, Nemaid similarity coefficients are computed using a new formula, different from the old Nemaid 1 and 2 formulae, and different also from the formulae used in version 3.0. The old Nemaid 1 and 2 formulae are gone for good, but you can ask the program to use the version 3.0 formulae.<br /></span>
-<span class="alinea1">In the tab <b>Compute coefficients of similarity</b>, …??
+<span class="alinea1">In the tab <b>Perform a comparison</b>, …??
 [Team: We'll have to see how and where in the interface the users can select the computation formula (3.0 or 3.1)]<br /></span>
 <br />
 
 <u>Correction factors and weights</u><br />
-<span class="alinea1"> All computation formulae include correction factors and weights for the various characters. Correction factors integrate the variability that can be attributed to each character, as proposed by various authors. Weights relate to the fact that some characters are more reliable than others for identification. You can see the correction factors and weights used by default in the formulae in the tab <b>"Set the parameters"</b>
-[Team: I'll finish that when we decide on the final interface]<br /></span>
+<span class="alinea1"> All computation formulae include correction factors and weights for the various characters. Correction factors integrate the variability that can be attributed to each character, as proposed by various authors. Weights relate to the fact that some characters are more reliable than others for identification.</br>
+You will find more details below in the dedicated Help sections.</br>
+ You can see the correction factors and weights used by default in the formulae in the tab <b>"Your samples".</b>
+</br> [Team: I'll finish that when we decide on the final interface]<br /></span>
 <br />
 					<br />
 					</td>
@@ -227,6 +229,66 @@ When a character has more than one state, the character score S<sub>1</sub> is c
 			</table>
 		</td>
 	</tr>
+
+<!----------------------------------------------------------------------->
+
+<tr>
+		<td class="no_border"><button onClick = "showHideDetails('<?php echo $count++; ?>')">+</button>What are the correction factors included in the Nemaid formulae ?<br /></td>
+	</tr>
+	<tr class="details">
+		<td class="no_border">
+			<table>
+				<tr >
+					<td>
+						Nemaid integrates the variability observed for some characters among the species of any given genus. For example, in Helicotylenchus, it has been observed that the body length can vary by up to 150 µm when the progeny of a single parthenogenetic female are raised on different hosts plants (<a href="http://genisys.prd.fr/Fortuner_1984c.pdf">Fortuner, 1984</a>). In the Nemaid formulae, the specific variability is represented by corrections factors and a difference in measurements or percentages between an unknown sample and a species is accepted as indicating a dissimilarity only in so far that such a difference is larger than the correction factor of the corresponding character. <br/> If you don’t agree with the default values displayed in the tab “Your samples”, you are free to modify them.
+					<br />
+					</td>
+				</tr>
+			</table>
+			<br />
+		</td>
+	</tr>
+
+<!----------------------------------------------------------------------->
+
+<tr>
+		<td class="no_border"><button onClick = "showHideDetails('<?php echo $count++; ?>')">+</button>What are the weights included in the Nemaid formulae ?<br /></td>
+	</tr>
+	<tr class="details">
+		<td class="no_border">
+			<table>
+				<tr >
+					<td>
+						It seems obvious that some characters are more reliable than others. For example, it is generally very easy to measure the body length of a nematode whereas the orifice of the dorsal esophageal gland is often obscure, which means that total body length is more reliable than DGO. In the Nemaid formulae, each character is weighted according to its reliability.</br>
+If you don’t agree with the default values displayed in the tab “Your samples”, you are free to modify them. You can also chose to set all weights equal to 1, in which case the characters will no longer be weighted.
+					<br />
+					</td>
+				</tr>
+			</table>
+			<br />
+		</td>
+	</tr>
+
+<!----------------------------------------------------------------------->
+
+<tr>
+		<td class="no_border"><button onClick = "showHideDetails('<?php echo $count++; ?>')">+</button>What are the ranges included in the Nemaid formulae and why can't I change it ?<br /></td>
+	</tr>
+	<tr class="details">
+		<td class="no_border">
+			<table>
+				<tr >
+					<td>
+						A character range is the difference between the maximum and minimum values found in the data table for the selected genus. For example, in Helicotylenchus, the largest species (<i>H. coomansi</i>) has a body length of 1235 µm while the smallest species (<i>H. minutus</i>) is 400 µm long. In that genus, the range for body length is 1235-400 = 835 µm. Stylets are far shorter than the whole body and the range for stylet length is only 27 µm. It is even smaller (2) for ratio <b>c’</b>. Ranges are included in the Nemaid formulae in order to compare differences in characters with absolute values so widely different.</br>
+Ranges are objective values, computed by the program directly from the data in the data table for the selected genus and they cannot be modified by the users.
+					<br />
+					</td>
+				</tr>
+			</table>
+			<br />
+		</td>
+	</tr>
+
 <!----------------------------------------------------------------------->
 
 <tr>
@@ -262,25 +324,7 @@ When a character has more than one state, the character score S<sub>1</sub> is c
 			</table>
 			<br />
 		</td>
-	</tr>	
-<!----------------------------------------------------------------------->
-<tr>
-		<td class="no_border"><button onClick = "showHideDetails('<?php echo $count++; ?>')">+</button>Why can't I change the ranges in the tab Parameters ?<br /></td>
 	</tr>
-	<tr class="details">
-		<td class="no_border">
-			<table>
-				<tr >
-					<td>
-					The Range of a character is the difference between the highest and the lowest values of that character in the various descriptions present in the database of the selected genus. It does not depend on subjective choices, such as those made for weights and correction factors, but it is an objective value computed directly from the data in the genus database. This computed value cannot be changed.
-					<br />
-					</td>
-				</tr>
-			</table>
-			<br />
-		</td>
-	</tr>
-
 
 <!----------------------------------------------------------------------->
 	<tr>
